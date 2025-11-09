@@ -29,9 +29,9 @@ function TodoList() {
   ];
 
   return (
-    <>
-      <input type="text" placeholder="搜尋..." />
+    <div>
       <div>
+        <input type="text" placeholder="搜尋..." />
         <button>排序: 時間升序</button>
         <button>新增</button>
       </div>
@@ -41,27 +41,8 @@ function TodoList() {
           <TodoItem key={todo.id} title={todo.title} time={todo.time} />
         ))}
       </div>
-    </>
-  );
-}
-
-function TodoModal(params) {
-  return (
-
-    <div>
-      <span>&times;</span>
-      <h2>新增待辦項目</h2>
-      <form>
-        <label for="title">標題</label>
-        <input id="title" type="text" placeholder="標題" required />
-        <label for="time">日期</label>
-        <input type="datetime-local" required />
-        <div >
-          <button type="submit">確定</button>
-        </div>
-      </form>
     </div>
-  )
+  );
 }
 
 export default function Page() {

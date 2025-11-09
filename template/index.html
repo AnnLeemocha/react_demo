@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>備忘錄</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">📝 備忘錄</h1>
+            <button class="theme-toggle">切換模式</button>
+        </header>
+
+        <section class="search-section">
+            <input class="search-input" type="text" placeholder="搜尋...">
+        </section>
+
+        <section class="todo-section">
+            <div class="todo-header">
+                <span class="todo-count">待辦清單：(0/0)</span>
+                <div>
+                    <button class="sort-btn">排序: 時間升序</button>
+                    <button class="add-btn">新增</button>
+                </div>
+            </div>
+            <ul class="todo-list">
+                <!-- 待辦項目會在這裡動態產生 -->
+            </ul>
+        </section>
+    </div>
+
+    <!-- 新增/修改表單彈窗 -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title">新增待辦項目</h2>
+            <form class="todo-form">
+                <label for="title">標題</label>
+                <input id="title" class="todo-title" type="text" placeholder="標題" required>
+                <label for="time">日期</label>
+                <input class="todo-time" type="datetime-local" required>
+                <div class="btn-group">
+                    <button class="todo-submit" type="submit">確定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

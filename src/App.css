@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,15 +10,76 @@
   text-align: center;
 }
 
+/* App.css */
+html {
+  background-color: #fff;
+  color: #000;
+}
+
+html.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+label {
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+
+input {
+  /* line-height: 2rem; */
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #8b99b7;
+  /* Tailwind 的 blue-600 */
+  box-shadow: 0 0 0 3px rgba(19, 41, 89, 0.3);
+  /* 淡淡的外圈 */
+}
+
+button {
+  border-color: rgb(225, 225, 225);
+  background-color: #f3f2f2;
+}
+
+button:hover {
+  border-color: gainsboro;
+  background-color: #ebebeb;
+}
+
+.dark button {
+  background-color: #8b8b8b;
+  border-color: #a0a0a0;
+  color: #fff;
+}
+
+.dark button:hover {
+  background-color: #979797;
+  border-color: #acacac;
+}
+
+.dark input {
+  background-color: rgb(233, 233, 233);
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +88,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -41,19 +108,76 @@
   color: #888;
 }
 
-/* App.css */
-.light {
-  background-color: #fff;
-  color: #000;
+/* Custom */
+
+.theme-btn {
+  position: absolute;
+  z-index: 999;
+  bottom: 2rem;
+  right: 2rem;
+  text-transform: capitalize;
+  size: 2rem;
+  border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  padding: 0px;
+  background-color: #a8d1ff;
+  /* background-color: #3b82f6; */
+  ;
 }
 
-.dark {
-  background-color: #333;
-  color: #fff;
+.theme-btn:hover {
+  background-color: #97c8ff;
+
 }
 
-/* 其他共用樣式 */
-body {
-  margin: 0;
-  font-family: sans-serif;
+.dark .theme-btn {
+  background-color: #4693e9;
+}
+
+.dark .theme-btn:hover {
+  background-color: #569ced;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 0.5rem;
+}
+
+.add-btn {
+  /* display: block; */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.todo-list {
+  padding: 0;
+  /* border: 1px solid #ececec; */
+}
+
+.todo-item {
+  padding: 8px 12px;
+  border: 1px solid #ececec;
+  /* border-color: rgb(236, 236, 236); */
+  /* background-color: #f3f2f2; */
+}
+
+.todo-item-title {
+  font-size: 1, 5rem;
+  /* flex: 1; */
+}
+
+.todo-item:hover {
+  background-color: #d4e7ff59;
 }
