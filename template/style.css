@@ -7,8 +7,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+
 /* 容器 */
-.container {
+#root {
     max-width: 600px;
     margin: 30px auto;
     background-color: #2c2c2c;
@@ -17,6 +23,14 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     width: 90%;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #efefef;
+    color: #333;
 }
 
 /* 頁首 */
@@ -38,9 +52,12 @@
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 6px;
-    border: 1px solid #555;
-    background-color: #3a3a3a;
+    /* background-color: #3a3a3a;
     color: #fff;
+    border: 1px solid #555; */
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
 }
 
 /* 待辦清單 */
@@ -62,11 +79,14 @@
     align-items: center;
     padding: 10px;
     margin-bottom: 5px;
-    border: 1px solid #555;
+    /* border: 1px solid #555; */
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    background: #3a3a3a;
+    /* background: #3a3a3a; */
+
+    border: 1px solid #ddd;
+    background: #fafafa
 }
 
 .todo-item span:first-child {
@@ -82,10 +102,10 @@
 
 .todo-item span:first-child .todo-time {
     font-size: 0.9em;
-    color: #bbb;
+    color: #666;
 }
 
-.todo-item.completed {
+.todo-item span:first-child.completed {
     text-decoration: line-through;
     opacity: 0.6;
 }
@@ -108,14 +128,16 @@
 }
 
 .modal-content {
-    background-color: #2c2c2c;
-    color: #fff;
+    /* background-color: #2c2c2c; */
+    /* color: #fff; */
     margin: 15% auto;
     padding: 20px;
     width: 90%;
     max-width: 400px;
     border-radius: 10px;
     position: relative;
+    background-color: #fff;
+    color: #333;
 }
 
 .todo-form input {
@@ -155,53 +177,14 @@
     margin-left: 5px;
 }
 
-/* 系統色彩模式（亮色） */
-/* @media (prefers-color-scheme: light) { */
-body {
-    background-color: #f9f9f9;
-    color: #333;
-}
 
-.container {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.search-section input {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ccc;
-}
-
-.todo-item {
-    border-color: #ddd;
-    background: #fafafa;
-}
-
-.modal-content {
-    background-color: #fff;
-    color: #333;
-}
-
-button {
-    background-color: #efefef;
-    color: #333;
-}
-
-.todo-item span:first-child .todo-time {
-    color: #666;
-}
-
-/* } */
-
-/* 保留 dark class 可切換暗色 */
-
+/* 暗色 */
 body.dark {
     background-color: #151515;
     color: #e8e8e8;
 }
 
-body.dark .container {
+body.dark #root {
     background-color: #2c2c2c;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }

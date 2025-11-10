@@ -83,19 +83,24 @@ function renderTodos() {
     todos.forEach(todo => {
         const li = document.createElement('li');
         li.className = 'todo-item';
-        if (todo.completed) li.classList.add('completed');
+        // if (todo.completed) li.classList.add('completed');
 
         li.innerHTML = `
+            <span>
+                <span class="todo-title">${todo.title}</span>
+                <span class="todo-time">${todo.time}</span>
+            </span>
+            <span>
+                <button class="edit-btn">修改</button>
+                <button class="delete-btn">刪除</button>
+            </span>
+        `;
 
-        <span>
-            <span class="todo-title">${todo.title}</span>
-            <span class="todo-time">${todo.time}</span>
-        </span>
-        <span>
-            <button class="edit-btn">修改</button>
-            <button class="delete-btn">刪除</button>
-        </span>
-    `;
+        // 再去操作 span:first-child
+        if (todo.completed) {
+            const firstSpan = li.querySelector('span:first-child');
+            if (firstSpan) firstSpan.classList.add('completed');
+        }
 
         // 點擊標題切換完成/取消
         li.addEventListener('click', e => {

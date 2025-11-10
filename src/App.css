@@ -1,183 +1,211 @@
+/* =============================
+   備忘錄頁面 CSS
+============================= */
+
+/* 全域 box-sizing */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
+
+/* 容器 */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* App.css */
-html {
-  background-color: #fff;
-  color: #000;
-}
-
-html.dark {
-  background-color: #333;
-  color: #fff;
-}
-
-label {
-  font-size: 1.25rem;
-  font-weight: bolder;
-}
-
-input {
-  /* line-height: 2rem; */
-  font-size: 1rem;
-  border: 2px solid #ccc;
-  border-radius: 6px;
-  padding: 8px 12px;
-  transition: all 0.2s ease;
-}
-
-input:focus {
-  outline: none;
-  border-color: #8b99b7;
-  /* Tailwind 的 blue-600 */
-  box-shadow: 0 0 0 3px rgba(19, 41, 89, 0.3);
-  /* 淡淡的外圈 */
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 button {
-  border-color: rgb(225, 225, 225);
-  background-color: #f3f2f2;
+    background-color: #efefef;
+    color: #333;
 }
 
-button:hover {
-  border-color: gainsboro;
-  background-color: #ebebeb;
+/* 頁首 */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.dark button {
-  background-color: #8b8b8b;
-  border-color: #a0a0a0;
-  color: #fff;
+.btn-group {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+    align-items: center;
 }
 
-.dark button:hover {
-  background-color: #979797;
-  border-color: #acacac;
+/* 搜尋欄 */
+.search-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    /* background-color: #3a3a3a;
+    color: #fff;
+    border: 1px solid #555; */
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
 }
 
-.dark input {
-  background-color: rgb(233, 233, 233);
-}
-
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* Custom */
-
-.theme-btn {
-  position: absolute;
-  z-index: 999;
-  bottom: 2rem;
-  right: 2rem;
-  text-transform: capitalize;
-  size: 2rem;
-  border-radius: 100%;
-  width: 4rem;
-  height: 4rem;
-  text-align: center;
-  padding: 0px;
-  background-color: #a8d1ff;
-  /* background-color: #3b82f6; */
-  ;
-}
-
-.theme-btn:hover {
-  background-color: #97c8ff;
-
-}
-
-.dark .theme-btn {
-  background-color: #4693e9;
-}
-
-.dark .theme-btn:hover {
-  background-color: #569ced;
-}
-
-.flex-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: start;
-}
-
-.flex-col {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  gap: 0.5rem;
-}
-
-.add-btn {
-  /* display: block; */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 100%;
+/* 待辦清單 */
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .todo-list {
-  padding: 0;
-  /* border: 1px solid #ececec; */
+    list-style: none;
+    padding: 0;
 }
 
 .todo-item {
-  padding: 8px 12px;
-  border: 1px solid #ececec;
-  /* border-color: rgb(236, 236, 236); */
-  /* background-color: #f3f2f2; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    /* border: 1px solid #555; */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    /* background: #3a3a3a; */
+
+    border: 1px solid #ddd;
+    background: #fafafa
 }
 
-.todo-item-title {
-  font-size: 1, 5rem;
-  /* flex: 1; */
+.todo-item span:first-child {
+    display: flex;
+    flex-direction: column;
 }
 
-.todo-item:hover {
-  background-color: #d4e7ff59;
+.todo-item span:first-child .todo-title {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 4px;
+}
+
+.todo-item span:first-child .todo-time {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-item button {
+    margin-left: 5px;
+}
+
+/* 彈窗 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    /* background-color: #2c2c2c; */
+    /* color: #fff; */
+    margin: 15% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+    background-color: #fff;
+    color: #333;
+}
+
+.todo-form input {
+    display: block;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 8px;
+    margin-top: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background-color: #3a3a3a;
+    color: #fff;
+}
+
+.todo-form label {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+.todo-form .todo-submit {
+    margin-top: 10px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 按鈕群 */
+.sort-btn,
+.add-btn {
+    margin-left: 5px;
+}
+
+/* 暗色 */
+body.dark {
+    background-color: #151515;
+    color: #e8e8e8;
+}
+
+body.dark #root {
+    background-color: #2c2c2c;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .todo-item {
+    background-color: #3a3a3a;
+    border-color: #555;
+}
+
+body.dark .modal-content {
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+body.dark .search-section input {
+    background-color: #444;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark button {
+    background-color: #555;
+    color: #fff;
+    border-color: black;
 }

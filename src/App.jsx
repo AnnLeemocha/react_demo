@@ -1,6 +1,6 @@
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import TodoList from "./pages/TodoList";
-import "./App.css"
+// import "./App.css"
 
 function App() {
   // const { theme } = useTheme();
