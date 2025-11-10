@@ -1,6 +1,10 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'light' | 'dark' | 'blue' | 'green';
+
+type Theme = 'light' | 'dark';
+// type Theme = 'light' | 'dark' | 'blue' | 'green';
+export const themes: Theme[] = ['light', 'dark'];
+// const themes: Theme[] = ['light', 'dark', 'blue', 'green'];
 
 interface ThemeContextType {
   theme: Theme;
@@ -10,7 +14,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setThemeState] = useState<Theme>('light');
 
   // 初始化主題
@@ -31,7 +35,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   // 實際修改 <html> class
   const applyThemeClass = (theme: Theme) => {
     const root = document.documentElement;
-    root.classList.remove('light', 'dark', 'blue', 'green'); // 先清除舊 class
+    root.classList.remove('light', 'dark'); // 先清除舊 class
+    // root.classList.remove('light', 'dark', 'blue', 'green'); // 先清除舊 class
     root.classList.add(theme);
   };
 
@@ -44,7 +49,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   // 可選：循環切換模式
   const toggleTheme = () => {
-    const themes: Theme[] = ['light', 'dark', 'blue', 'green'];
+    // const themes: Theme[] = ['light', 'dark'];
     const currentIndex = themes.indexOf(theme);
     const nextIndex = (currentIndex + 1) % themes.length;
     setTheme(themes[nextIndex]);
