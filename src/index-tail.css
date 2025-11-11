@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* 為手動切換深色模式設定 custom‐variant（class = “dark”） */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 自訂 CSS 變數：亮色模式預設值 */
+:root {
+  --background: hsl(0, 0%, 95%);
+  --foreground: hsl(0, 0%, 10%);
+  --primary: hsl(220, 90%, 56%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --button: hsl(220, 23%, 97%);
+  --button-foreground: hsl(0, 0%, 10%);
+  --input: hsl(0, 0%, 100%);
+  --input-foreground: hsl(0, 0%, 10%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 10%);
+  --card-shadow: 0 0 15px rgba(85, 85, 85, 0.5);
+  --button-hover: hsl(0, 0%, 82%);
+  /* 你可依需求新增更多變數 like border, muted, accent 等 */
+}
+
+/* 深色模式變更變數值 */
+.dark {
+  --background: hsl(0, 0%, 10%);
+  --foreground: hsl(0, 0%, 90%);
+  --primary: hsl(220, 90%, 66%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --button: hsl(0, 0%, 42%);
+  --button-foreground: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 30%);
+  --input-foreground: hsl(0, 0%, 90%);
+  --card: hsl(0, 0%, 20%);
+  --card-foreground: hsl(0, 0%, 90%);
+  --card-shadow: 0 0 15px rgba(85, 85, 85, 0.5);
+  --button-hover: hsl(0, 0%, 54%);
+  /* 同上：變更多變數以適應深色模式 */
+}
+
+/* 將變數映射至 Tailwind 的 theme 使用方式 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary-main: var(--primary);
+  --color-primary-text: var(--primary-foreground);
+  --color-button: var(--button);
+  --color-button-foreground: var(--button-foreground);
+  --color-input: var(--input);
+  --color-input-foreground: var(--input-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-button-hover: var(--button-hover);
+  --color-card-shadow: var(--card-shadow);
+}
+
+/* 你也可以針對基礎元素做一些樣式重設或設置 */
+
+@layer base {
+  body {
+    margin: 0;
+    display: flex;
+    /* place-items: center; */
+    justify-content: center;
+    text-align: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply transition duration-300 ease-in-out
+  }
+
+  button {
+    background-color: var(--color-button);
+    color: var(--color-button-foreground);
+    @apply px-4 py-2 rounded-md hover:bg-[var(--color-button-hover)] cursor-pointer disabled:cursor-not-allowed border border-gray-300 dark:border-gray-500;
+  }
+
+  .btn-active {
+    background-color: var(--color-primary-main);
+    color: var(--color-primary-text);
+    @apply hover:bg-[var(--color-primary-main)] hover:text-[var(--color-primary-text)]
+  }
+
+  input {
+    background-color: var(--color-input);
+    color: var(--color-input-foreground);
+    @apply px-2 py-1 rounded border border-gray-400 dark:border-gray-600 focus:outline-none;
+  }
+
+  section,
+  .card {
+    background-color: var(--color-card);
+    color: var(--color-card-foreground);
+    box-shadow: var(--color-card-shadow);
+    @apply mx-auto my-2 p-[2em] rounded-[10px];
+  }
+
+  strong {
+    @apply text-red-500;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold mb-2;
+  }
+
+  nav {
+    background-color: var(--color-card);
+    color: var(--color-card-foreground);
+    box-shadow: var(--color-card-shadow);
+    @apply font-bold rounded-[10px] p-4;
+  }
+
+  .modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    @apply fixed z-[1000] w-full h-full overflow-auto left-0 top-0;
+  }
+
+  .modal-content {
+    background-color: var(--color-card);
+    color: var(--color-card-foreground);
+    box-shadow: var(--color-card-shadow);
+    @apply w-[90%] max-w-[400px] relative mx-auto my-[15%] p-5 rounded-[10px];
+  }
+}

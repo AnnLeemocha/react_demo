@@ -31,24 +31,22 @@ export default function Hook() {
         if (isStop.current) {
             return
         }
-        console.log("開始取得 1 資料!");
-        setData("資料獲取中...");
+        setData("資料 1 獲取中...");
         isStop.current = true;
         setTimeout(() => {
             isStop.current = false;
-            setData("資料已取得");
+            setData("資料 1 已取得");
         }, 3000)
     }
     function loading2() {
         if (isStop.current) {
             return
         }
-        console.log("開始取得 2 資料!");
-        setData("資料獲取中...");
+        setData("資料 2 獲取中...");
         isStop.current = true;
         setTimeout(() => {
             isStop.current = false;
-            setData("資料已取得");
+            setData("資料 2 已取得");
         }, 3000)
     }
 
@@ -71,34 +69,39 @@ export default function Hook() {
     return (
         <>
             <section>
-                <div>不用 useState 顯示 A: <strong>{a}</strong></div>
+                <h3>不用 useState 顯示 A: </h3>
+                <div><strong>{a}</strong></div>
                 <button onClick={addA}>點我</button>
             </section>
             <section>
-                <div>使用 useState 顯示 B : <strong>{b}</strong></div>
+                <h3>使用 useState 顯示 B : </h3>
+                <div><strong>{b}</strong></div>
                 <button onClick={addB}>點我</button>
             </section>
             <section>
-                <div>使用 useEffect : 監測 B</div>
-                <div style={{ height: "1.5rem" }}><strong>{bMsg}</strong></div>
-                <div>使用 useEffect 初始化 C : <strong>{c}</strong></div>
+                <h3>使用 useEffect : 監測 B</h3>
+                <div className="my-1" style={{ height: "1.5rem" }}><strong>{bMsg}</strong></div>
+                <h3>使用 useEffect 初始化 C : </h3>
+                <div><strong>{c}</strong></div>
             </section>
             <section>
-                <div>使用 useRef 阻止重複點擊 : </div>
+                <h3>使用 useRef 阻止重複點擊 : </h3>
                 <div style={{ height: "1.5rem" }}><strong>{data}</strong></div>
                 <button onClick={loading}>資料獲取1</button>
                 <button onClick={loading2}>資料獲取2</button>
             </section>
             <section>
-                <div>使用 useRef 聚焦 & 使用 useId 連結 label 與 input : </div>
+                <h3>使用 useRef 聚焦 & 使用 useId 連結 label 與 input : </h3>
+                <div className="flex items-center justify-center gap-2">
                 <label htmlFor={inputId}>項目: </label>
                 <input id={inputId} type="text" ref={inputRef} />
-                <button onClick={() => inputRef.current?.focus()}>聚焦</button>
+                <button onClick={() => inputRef.current?.focus()} className="ms-1">聚焦</button>
+                </div>
             </section>
             <section>
                 {/* <input type="file" ref={uploadRef} style={{ display: "none" }} /> */}
                 <input type="file" ref={uploadRef} />
-                <button onClick={upload}>上傳</button>
+                <button onClick={upload} className="ms-4">上傳</button>
             </section>
         </>
     )

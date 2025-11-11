@@ -3,9 +3,12 @@ import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import Syntax from './pages/Syntax'
 import Hook from './pages/Hook'
-import './App.css'
+import Tailwind from './pages/Tailwind'
+import TodoList from './pages/TodoList'
 import { ThemeProvider } from "./context/ThemeContext";
-import { ThemeToggle } from "./components/ThemeToggle";
+import { ThemeToggle } from "./components/theme/ThemeToggle";
+// import './AppTail.css'
+// import './App.css'
 
 const pages = [
   {
@@ -15,6 +18,14 @@ const pages = [
   {
     name: "Hook",
     page: <Hook />
+  },
+  {
+    name: "Tailwind",
+    page: <Tailwind />
+  },
+  {
+    name: "TodoList",
+    page: <TodoList />
   }
 ]
 
@@ -38,17 +49,17 @@ function App() {
   return (
     <ThemeProvider>
       <header>
-        <div className='header'>
+        <div className='header flex gap-2 mt-6 mb-4 justify-center items-center'>
           <img src={reactLogo} className='logo react' />
           <ThemeToggle />
         </div>
-        <nav>
+        <nav className='flex gap-2 my-4 justify-center items-center w-full'>
           {pages.map(item => (
             <button
               key={item.name}
               type='button'
               onClick={() => handleChangePage(item.name)}
-              className={item.name === page ? 'nav-active' : 'nav-inactive'}
+              className={`${item.name === page ? 'btn-active nav-active' : 'nav-inactive'}`}
               // style={{ color: item.name === page ? 'blue' : 'black' }}
             >
               {item.name}
@@ -56,7 +67,7 @@ function App() {
           ))}
         </nav>
       </header>
-      <main className='card'>
+      <main className='card w-[600px]'>
         {pages.map(item => (
           item.name === page &&
           (
