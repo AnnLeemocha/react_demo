@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import type { Item, newItem } from "./types";
 import { TodoItem } from "./TodoItem";
 import { TodoModal } from "./TodoModal";
 
-const sampleList: Item[] = [
+const sampleList: TodoItem[] = [
     { id: "1", title: "買牛奶", time: "2025-10-01T10:00", completed: false },
     { id: "2", title: "完成報告", time: "2025-10-03T14:00", completed: false },
     { id: "3", title: "寄信給老師", time: "2025-09-30T09:00", completed: false },
@@ -12,27 +11,27 @@ const sampleList: Item[] = [
 ];
 
 // ---------- localStorage 工具 ----------
-function getTodos(): Item[] {
+function getTodos(): TodoItem[] {
     const str = localStorage.getItem("todos");
     if (!str) return sampleList;
     try {
-        return JSON.parse(str) as Item[];
+        return JSON.parse(str) as TodoItem[];
     } catch {
         return sampleList;
     }
 }
 
-function saveTodos(list: Item[]) {
+function saveTodos(list: TodoItem[]) {
     localStorage.setItem("todos", JSON.stringify(list));
 }
 
 // ---------- 主組件 ----------
 export function TodoList() {
-    const [todos, setTodos] = useState<Item[]>(getTodos);
+    const [todos, setTodos] = useState<TodoItem[]>(getTodos);
     const [search, setSearch] = useState("");
     const [sortAsc, setSortAsc] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [editItem, setEditItem] = useState<Item | null>(null);
+    const [editItem, setEditItem] = useState<TodoItem | null>(null);
 
     // todos 一變更就儲存至 localStorage
     useEffect(() => {
@@ -48,7 +47,7 @@ export function TodoList() {
                 : b.time.localeCompare(a.time)
         );
 
-    function handleAddOrEdit(data: newItem, editId?: string) {
+    function handleAddOrEdit(data: Omit<TodoItem, "id" | "completed">, editId?: string) {
         if (editId) {
             // 修改
             setTodos((prev) =>
@@ -56,7 +55,7 @@ export function TodoList() {
             );
         } else {
             // 新增
-            const newItem: Item = {
+            const newItem: TodoItem = {
                 id: Date.now().toString(),
                 title: data.title,
                 time: data.time,

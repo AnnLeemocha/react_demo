@@ -1,12 +1,12 @@
 import { useState, useEffect, useId } from "react";
-import type { Item, newItem } from "./types";
+
 
 interface ModalProps {
     open: boolean;
     // type: "ADD" | "EDIT";
     onClose: () => void;
-    onConfirm: (data: newItem, editId?: string) => void;
-    editItem?: Item | null;
+    onConfirm: (data: Omit<TodoItem, "id" | "completed">, editId?: string) => void;
+    editItem?: TodoItem | null;
 }
 
 export function TodoModal({

@@ -1,5 +1,5 @@
 import { ThemeToggle } from "../components/theme/ThemeToggle";
-import { TodoList } from "../components/todolist/TodoList";
+import { TodoList } from "../modules/todolist/TodoList";
 
 export default function Page() {
     return (

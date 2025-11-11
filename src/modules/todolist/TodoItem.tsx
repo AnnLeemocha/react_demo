@@ -1,8 +1,6 @@
-import type { Item } from "./types";
-
 interface TodoItemProps {
-    item: Item;
-    onEdit: (item: Item) => void;
+    item: TodoItem;
+    onEdit: (item: TodoItem) => void;
     onDelete: (id: string) => void;
 }
 
