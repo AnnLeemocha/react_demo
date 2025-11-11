@@ -4,6 +4,7 @@
     * 安裝 (框架 vs 建構工具)
         * https://zh-hans.react.dev/learn/installation
         * npm create vite@latest my-app -- --template react
+    * 專案結構
     * 找進入點
         * index.html
         * src/main.js

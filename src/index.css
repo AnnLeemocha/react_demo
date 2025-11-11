@@ -57,7 +57,10 @@ button {
   font-family: inherit;
   background-color: #f9f9f9; /* 預設亮色按鈕 */
   cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s, color 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    color 0.25s;
 }
 button:hover {
   border-color: #646cff;
@@ -102,7 +105,6 @@ button:focus-visible {
     color: rgba(255, 255, 255, 0.87);
   }
 } */
-
 
 #root {
   max-width: 1280px;
@@ -192,7 +194,6 @@ main {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-
   /* a:nth-of-type(2) .logo { */
   .logo.react {
     animation: logo-spin infinite 20s linear;

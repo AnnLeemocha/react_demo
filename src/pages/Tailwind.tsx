@@ -55,7 +55,7 @@ function Tailwind() {
 
         <div className="flex flex-col items-center justify-center">
           <button
-            onClick={() => setVisible(prev => !prev)}
+            onClick={() => setVisible((prev) => !prev)}
             className="mb-4 px-4 py-2"
           >
             {visible ? "淡出元素" : "淡入元素"}
@@ -79,9 +79,7 @@ function Tailwind() {
           <div className="size-12 bg-purple-500 dark:bg-purple-400 rounded-full animate-bounce"></div>
         </div>
         <span className="relative inline-flex my-4">
-          <button type="button">
-            Transactions
-          </button>
+          <button type="button">Transactions</button>
           <span className="relative flex size-3 -mt-1 -ml-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
             <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
@@ -102,11 +100,9 @@ function Tailwind() {
             </div>
           </div>
         </div>
-
       </section>
-
     </>
   );
 }
 
-export default Tailwind
+export default Tailwind;

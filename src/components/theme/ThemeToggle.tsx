@@ -1,9 +1,11 @@
 import { useTheme } from "../../context/ThemeContext";
 
 export function ThemeToggle() {
-    const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-    return (
-        <button onClick={toggleTheme}>變更主題 ➤ {theme === "dark" ? "☀️" : "🌙"}</button>
-    )
+  return (
+    <button onClick={toggleTheme}>
+      變更主題 ➤ {theme === "dark" ? "☀️" : "🌙"}
+    </button>
+  );
 }
