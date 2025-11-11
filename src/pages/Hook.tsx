@@ -52,7 +52,7 @@ export default function Hook() {
 
   useEffect(() => {
     setC(5);
-    inputRef.current?.focus();
+    // inputRef.current?.focus();
   }, []);
 
   useEffect(() => {
