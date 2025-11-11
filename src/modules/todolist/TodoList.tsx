@@ -1,33 +1,22 @@
 import { useState, useEffect } from "react";
 import { TodoItem } from "./TodoItem";
 import { TodoModal } from "./TodoModal";
+import { DEFAULT_LIST } from "../../config/constant"
 
-const sampleList: TodoItem[] = [
-    { id: "1", title: "買牛奶", time: "2025-10-01T10:00", completed: false },
-    { id: "2", title: "完成報告", time: "2025-10-03T14:00", completed: false },
-    { id: "3", title: "寄信給老師", time: "2025-09-30T09:00", completed: false },
-    { id: "4", title: "打掃房間", time: "2025-10-02T16:00", completed: false },
-    {
-        id: "5",
-        title: "運動 30 分鐘",
-        time: "2025-09-29T18:00",
-        completed: false,
-    },
-];
 
 // ---------- localStorage 工具 ----------
 function getTodos(): TodoItem[] {
     const str = localStorage.getItem("todos");
-    if (!str) return sampleList;
+    if (!str) return DEFAULT_LIST;
     try {
         const parsed = JSON.parse(str);
-        if (!Array.isArray(parsed)) return sampleList;
+        if (!Array.isArray(parsed)) return DEFAULT_LIST;
         // 過濾掉不合法的項目
         return parsed.filter(
             (t) => t && typeof t.title === "string" && typeof t.time === "string"
         ) as TodoItem[];
     } catch {
-        return sampleList;
+        return DEFAULT_LIST;
     }
 }
 
